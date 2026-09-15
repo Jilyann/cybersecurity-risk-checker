@@ -90,6 +90,10 @@ h3 {
 /* HOME */
 
 .hero-image {
+
+    opacity: 0.9;
+    transform: scale(1.02);
+    transition: transform 0.3s ease, opacity 0.3s ease;
     display: block;
     width: 100%;
     max-width: 650px;
