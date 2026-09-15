@@ -383,7 +383,7 @@
                     </fieldset>
 
 
-                    <button type="button" class="primary-button">
+                    <button type="button" class="primary-button" id="submit-assessment">
                         Submit Assessment
                     </button>
 
@@ -410,7 +410,7 @@
 
                     <h3>General Risk Level</h3>
 
-                    <p class="result-placeholder">
+                    <p class="result-placeholder" id="result-text">
                         Your cybersecurity risk level will appear here
                         after the assessment functionality is implemented.
                     </p>
@@ -567,6 +567,44 @@
         </p>
 
     </footer>
+
+<script>
+let submitButton = document.getElementById("submit-assessment");
+
+submitButton.onclick = function () {
+
+    let q1 = document.querySelector('input[name="password-unique"]:checked');
+    let q2 = document.querySelector('input[name="password-sharing"]:checked');
+    let q3 = document.querySelector('input[name="mfa-use"]:checked');
+    let q4 = document.querySelector('input[name="verification-review"]:checked');
+    let q5 = document.querySelector('input[name="sender-check"]:checked');
+    let q6 = document.querySelector('input[name="phishing-links"]:checked');
+
+    let riskScore = 0;
+
+    let answers = [q1, q2, q3, q4, q5, q6];
+
+    for (let i = 0; i < answers.length; i++) {
+        if (answers[i].value === "no") {
+            riskScore = riskScore + 2;
+        } else if (answers[i].value === "sometimes") {
+            riskScore = riskScore + 1;
+        }
+    }
+
+    if (riskScore <= 3) {
+        document.getElementById("result-text").textContent =
+            "Low Risk (score: " + riskScore + "/12): Your habits show strong cybersecurity awareness.";
+    } else if (riskScore <= 7) {
+        document.getElementById("result-text").textContent =
+            "Moderate Risk (score: " + riskScore + "/12): Some habits could be improved. Review the recommendations below.";
+    } else {
+        document.getElementById("result-text").textContent =
+            "High Risk (score: " + riskScore + "/12): Several habits may put your accounts at risk. Please review the recommendations below carefully.";
+    }
+
+};
+</script>
 
 </body>
 
