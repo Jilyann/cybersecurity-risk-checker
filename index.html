@@ -572,6 +572,8 @@
 <script>
 let submitButton = document.getElementById("submit-assessment");
 let resultText = document.getElementById("result-text");
+let resultCard = document.querySelector(".result-card");
+let resultLabel = document.querySelector(".result-label");
 let recommendationMessage = document.getElementById("recommendation-message");
 let feedbackName = document.getElementById("feedback-name");
 let feedbackMessage = document.getElementById("feedback-message");
@@ -619,18 +621,32 @@ submitButton.onclick = function () {
 
         recommendationMessage.textContent =
             "Continue your current security habits and review the recommendations below to maintain strong account protection.";
+
+        resultCard.className = "result-card low-risk";
+        resultLabel.className = "result-label low-risk";
+        resultText.className = "result-placeholder low-risk";
+
     } else if (riskScore <= 7) {
         resultText.textContent =
             "Moderate Risk (score: " + riskScore + "/12): Some habits could be improved.";
 
         recommendationMessage.textContent =
             "Review the recommendations below and focus on the security habits that you only practice sometimes or do not practice yet.";
+
+        resultCard.className = "result-card moderate-risk";
+        resultLabel.className = "result-label moderate-risk";
+        resultText.className = "result-placeholder moderate-risk";    
+    
     } else {
         resultText.textContent =
             "High Risk (score: " + riskScore + "/12): Several habits may put your accounts at risk.";
 
         recommendationMessage.textContent =
             "Review the recommendations below carefully and prioritize stronger password habits, multi-factor authentication, and phishing awareness.";
+
+        resultCard.className = "result-card high-risk";
+        resultLabel.className = "result-label high-risk";
+        resultText.className = "result-placeholder high-risk";
     }
 
     document.getElementById("results").scrollIntoView();

@@ -222,6 +222,47 @@ h3 {
 .result-placeholder {
     font-weight: bold;
 }
+/* Low Risk */
+.result-card.low-risk {
+    border-left-color: #16a34a;
+}
+
+.result-label.low-risk {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.result-placeholder.low-risk {
+    color: #16a34a;
+}
+
+/* Moderate Risk */
+.result-card.moderate-risk {
+    border-left-color: #f97316;
+}
+
+.result-label.moderate-risk {
+    background-color: #ffedd5;
+    color: #ea580c;
+}
+
+.result-placeholder.moderate-risk {
+    color: #f97316;
+}
+
+/* High Risk */
+.result-card.high-risk {
+    border-left-color: #dc2626;
+}
+
+.result-label.high-risk {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.result-placeholder.high-risk {
+    color: #dc2626;
+}
 
 
 /* RECOMMENDATIONS */
