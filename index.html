@@ -410,14 +410,13 @@
 
                     <h3>General Risk Level</h3>
 
-                    <p class="result-placeholder" id="result-text">
-                        Your cybersecurity risk level will appear here
-                        after the assessment functionality is implemented.
+                    <p class="result-placeholder" id="result-text" aria-live="polite">
+                        Complete the assessment to view your general risk level.
                     </p>
 
                     <p>
-                        Future JavaScript functionality will evaluate the
-                        assessment responses and display a general risk level.
+                        Your result is based on your responses to the six
+                        cybersecurity awareness questions above.
                     </p>
 
                 </div>
@@ -519,7 +518,7 @@
                     Share comments or suggestions about the application.
                 </p>
 
-                <form class="feedback-form">
+                <form class="feedback-form" id="feedback-form">
 
                     <label for="feedback-name">
                         Name
@@ -543,9 +542,11 @@
                         placeholder="Enter your feedback"></textarea>
 
 
-                    <button type="button" class="primary-button">
+                    <button type="button" class="primary-button" id="send-feedback">
                         Send Feedback
                     </button>
+
+                    <p class="feedback-status" id="feedback-status" aria-live="polite"></p>
 
                 </form>
 
@@ -572,6 +573,10 @@
 let submitButton = document.getElementById("submit-assessment");
 let resultText = document.getElementById("result-text");
 let recommendationMessage = document.getElementById("recommendation-message");
+let feedbackName = document.getElementById("feedback-name");
+let feedbackMessage = document.getElementById("feedback-message");
+let feedbackButton = document.getElementById("send-feedback");
+let feedbackStatus = document.getElementById("feedback-status");
 
 submitButton.onclick = function () {
 
@@ -629,6 +634,26 @@ submitButton.onclick = function () {
     }
 
     document.getElementById("results").scrollIntoView();
+
+};
+
+feedbackButton.onclick = function () {
+
+    let name = feedbackName.value.trim();
+    let message = feedbackMessage.value.trim();
+
+    if (name === "" || message === "") {
+        feedbackStatus.textContent =
+            "Please enter your name and feedback before submitting.";
+
+        return;
+    }
+
+    feedbackStatus.textContent =
+        "Thank you, " + name + "! Your feedback was received for this session.";
+
+    feedbackName.value = "";
+    feedbackMessage.value = "";
 
 };
 </script>

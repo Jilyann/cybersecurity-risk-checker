@@ -282,6 +282,26 @@ h3 {
 }
 
 
+/* ACCESSIBILITY AND FEEDBACK */
+
+.main-navigation a:focus-visible,
+.action-button:focus-visible,
+.primary-button:focus-visible,
+.feedback-form input:focus-visible,
+.feedback-form textarea:focus-visible,
+.question input:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+.feedback-status {
+    min-height: 24px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+
 /* FOOTER */
 
 .site-footer {
