@@ -435,9 +435,9 @@
 
                 <h2>Security Recommendations</h2>
 
-                <p>
-                    Recommendations will be connected to the assessment
-                    results during future development.
+                <p id="recommendation-message">
+                    Complete the assessment to receive recommendations
+                    based on your general risk level.
                 </p>
 
 
@@ -570,6 +570,8 @@
 
 <script>
 let submitButton = document.getElementById("submit-assessment");
+let resultText = document.getElementById("result-text");
+let recommendationMessage = document.getElementById("recommendation-message");
 
 submitButton.onclick = function () {
 
@@ -580,9 +582,23 @@ submitButton.onclick = function () {
     let q5 = document.querySelector('input[name="sender-check"]:checked');
     let q6 = document.querySelector('input[name="phishing-links"]:checked');
 
-    let riskScore = 0;
-
     let answers = [q1, q2, q3, q4, q5, q6];
+
+    for (let i = 0; i < answers.length; i++) {
+        if (answers[i] === null) {
+            resultText.textContent =
+                "Please answer all six assessment questions before submitting.";
+
+            recommendationMessage.textContent =
+                "Complete all assessment questions first so the application can provide an appropriate recommendation.";
+
+            document.getElementById("results").scrollIntoView();
+
+            return;
+        }
+    }
+
+    let riskScore = 0;
 
     for (let i = 0; i < answers.length; i++) {
         if (answers[i].value === "no") {
@@ -593,15 +609,26 @@ submitButton.onclick = function () {
     }
 
     if (riskScore <= 3) {
-        document.getElementById("result-text").textContent =
+        resultText.textContent =
             "Low Risk (score: " + riskScore + "/12): Your habits show strong cybersecurity awareness.";
+
+        recommendationMessage.textContent =
+            "Continue your current security habits and review the recommendations below to maintain strong account protection.";
     } else if (riskScore <= 7) {
-        document.getElementById("result-text").textContent =
-            "Moderate Risk (score: " + riskScore + "/12): Some habits could be improved. Review the recommendations below.";
+        resultText.textContent =
+            "Moderate Risk (score: " + riskScore + "/12): Some habits could be improved.";
+
+        recommendationMessage.textContent =
+            "Review the recommendations below and focus on the security habits that you only practice sometimes or do not practice yet.";
     } else {
-        document.getElementById("result-text").textContent =
-            "High Risk (score: " + riskScore + "/12): Several habits may put your accounts at risk. Please review the recommendations below carefully.";
+        resultText.textContent =
+            "High Risk (score: " + riskScore + "/12): Several habits may put your accounts at risk.";
+
+        recommendationMessage.textContent =
+            "Review the recommendations below carefully and prioritize stronger password habits, multi-factor authentication, and phishing awareness.";
     }
+
+    document.getElementById("results").scrollIntoView();
 
 };
 </script>
