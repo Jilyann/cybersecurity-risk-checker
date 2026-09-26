@@ -32,6 +32,12 @@ Users complete a short cybersecurity awareness assessment and receive a general 
 
 This application is intended for cybersecurity awareness and self-assessment only. It does not scan devices, check real passwords, access user accounts, or perform vulnerability testing.
 
+## Application Development Workflow Worksheet Link
+https://docs.google.com/spreadsheets/d/1ladCaQ0dIZUoNmZWEuc2NC8W80azfvy4pDw7HsiKGdw/edit?usp=sharing
+
+## AI Use Statement Link
+https://docs.google.com/document/d/1brsTEIXXLcQ28UXZfO8CgNyF7gJl79_MaBH5d0Tzhho/edit?usp=sharing
+
 ## Course
 
 MO-IT161 – Web Systems and Technology
