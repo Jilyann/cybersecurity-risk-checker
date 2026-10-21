@@ -94,10 +94,27 @@ feedbackButton.onclick = function () {
         return;
     }
 
-    feedbackStatus.textContent =
-        "Thank you, " + name + "! Your feedback was received for this session.";
+    fetch("/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name, message: message })
+    })
+        .then(function (response) {
+            return response.json().then(function (data) {
+                if (!response.ok) {
+                    throw new Error(data.error || "The server rejected the feedback.");
+                }
 
-    feedbackName.value = "";
-    feedbackMessage.value = "";
+                feedbackStatus.textContent =
+                    "Thank you, " + name + "! Your feedback was saved.";
+
+                feedbackName.value = "";
+                feedbackMessage.value = "";
+            });
+        })
+        .catch(function (error) {
+            feedbackStatus.textContent =
+                "Feedback was not sent: " + error.message;
+        });
 
 };
