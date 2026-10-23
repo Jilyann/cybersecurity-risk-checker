@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Jilyann/cybersecurity-risk-checker#readme",
   "dependencies": {
+    "ejs": "^7.0.2",
     "express": "^5.3.0"
   }
 }

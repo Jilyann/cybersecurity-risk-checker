@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><%= pageTitle %></title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="header-content">
+            <h1>Cybersecurity Awareness & Risk Checker</h1>
+
+            <p>
+                A browser-based cybersecurity awareness self-assessment
+                designed for college students.
+            </p>
+        </div>
+
+    </header>
+
+
+    <nav class="main-navigation">
+
+        <a href="#home">Home</a>
+        <a href="#topics">Security Topics</a>
+        <a href="#assessment">Assessment</a>
+        <a href="#results">Results</a>
+        <a href="#recommendations">Recommendations</a>
+        <a href="#feedback">Feedback</a>
+
+    </nav>
+
+
+    <main>
+
+        <!-- HOME SECTION -->
+
+        <section id="home" class="content-section">
+
+            <div class="section-content">
+
+                <h2>Welcome</h2>
+
+                <p>
+                    This application helps college students review their
+                    cybersecurity awareness and everyday online security habits.
+                </p>
+
+                <img
+                    class="hero-image"
+                    src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800"
+                    alt="Cybersecurity illustration">
+
+                <p>
+                    The assessment focuses on password and account security,
+                    multi-factor authentication, and phishing awareness.
+                </p>
+
+                <a href="#assessment" class="action-button">
+                    Start Assessment
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- CYBERSECURITY TOPICS -->
+
+        <section id="topics" class="content-section">
+
+            <div class="section-content">
+
+                <h2>Cybersecurity Topics</h2>
+
+                <p>
+                    Review the three cybersecurity areas covered by the
+                    awareness assessment.
+                </p>
+
+
+                <div class="topic-container">
+
+                    <article class="topic-card">
+
+                        <span class="topic-label">Account Security</span>
+
+                        <h3>Password and Account Security</h3>
+
+                        <p>
+                            Learn about safer password habits and ways to
+                            protect your online accounts.
+                        </p>
+
+                    </article>
+
+
+                    <article class="topic-card">
+
+                        <span class="topic-label">Extra Protection</span>
+
+                        <h3>Multi-Factor Authentication</h3>
+
+                        <p>
+                            Understand how additional verification methods
+                            can provide another layer of account protection.
+                        </p>
+
+                    </article>
+
+
+                    <article class="topic-card">
+
+                        <span class="topic-label">Online Awareness</span>
+
+                        <h3>Phishing Awareness</h3>
+
+                        <p>
+                            Learn to recognize suspicious messages, links,
+                            attachments, and requests for personal information.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ASSESSMENT -->
+
+        <section id="assessment" class="content-section assessment-section">
+
+            <div class="section-content">
+
+                <h2>Cybersecurity Awareness Assessment</h2>
+
+                <p>
+                    Answer the questions based on your usual online habits.
+                    Do not enter real passwords or other sensitive information.
+                </p>
+
+
+                <form>
+
+                    <!-- PASSWORD AND ACCOUNT SECURITY -->
+
+                    <fieldset class="question-group">
+
+                        <legend>Password and Account Security</legend>
+
+
+                        <div class="question">
+
+                            <p>
+                                1. Do you use different passwords for your
+                                important online accounts?
+                            </p>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="password-unique"
+                                    value="yes">
+                                Yes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="password-unique"
+                                    value="sometimes">
+                                Sometimes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="password-unique"
+                                    value="no">
+                                No
+                            </label>
+
+                        </div>
+
+
+                        <div class="question">
+
+                            <p>
+                                2. Do you avoid sharing your passwords
+                                with other people?
+                            </p>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="password-sharing"
+                                    value="yes">
+                                Yes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="password-sharing"
+                                    value="sometimes">
+                                Sometimes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="password-sharing"
+                                    value="no">
+                                No
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- MFA -->
+
+                    <fieldset class="question-group">
+
+                        <legend>Multi-Factor Authentication</legend>
+
+
+                        <div class="question">
+
+                            <p>
+                                3. Do you enable multi-factor authentication
+                                when it is available?
+                            </p>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="mfa-use"
+                                    value="yes">
+                                Yes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="mfa-use"
+                                    value="sometimes">
+                                Sometimes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="mfa-use"
+                                    value="no">
+                                No
+                            </label>
+
+                        </div>
+
+
+                        <div class="question">
+
+                            <p>
+                                4. Do you review unexpected login or
+                                verification requests before approving them?
+                            </p>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="verification-review"
+                                    value="yes">
+                                Yes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="verification-review"
+                                    value="sometimes">
+                                Sometimes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="verification-review"
+                                    value="no">
+                                No
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- PHISHING -->
+
+                    <fieldset class="question-group">
+
+                        <legend>Phishing Awareness</legend>
+
+
+                        <div class="question">
+
+                            <p>
+                                5. Do you check the sender before opening
+                                suspicious messages or links?
+                            </p>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="sender-check"
+                                    value="yes">
+                                Yes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="sender-check"
+                                    value="sometimes">
+                                Sometimes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="sender-check"
+                                    value="no">
+                                No
+                            </label>
+
+                        </div>
+
+
+                        <div class="question">
+
+                            <p>
+                                6. Do you avoid clicking unexpected links
+                                or downloading suspicious attachments?
+                            </p>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="phishing-links"
+                                    value="yes">
+                                Yes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="phishing-links"
+                                    value="sometimes">
+                                Sometimes
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="phishing-links"
+                                    value="no">
+                                No
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <button type="button" class="primary-button" id="submit-assessment">
+                        Submit Assessment
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTS -->
+
+        <section id="results" class="content-section">
+
+            <div class="section-content">
+
+                <h2>Your Risk Assessment Result</h2>
+
+                <div class="result-card">
+
+                    <span class="result-label">
+                        Assessment Result
+                    </span>
+
+                    <h3>General Risk Level</h3>
+
+                    <p class="result-placeholder" id="result-text" aria-live="polite">
+                        Complete the assessment to view your general risk level.
+                    </p>
+
+                    <p>
+                        Your result is based on your responses to the six
+                        cybersecurity awareness questions above.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECOMMENDATIONS -->
+
+        <section id="recommendations" class="content-section">
+
+            <div class="section-content">
+
+                <h2>Security Recommendations</h2>
+
+                <p id="recommendation-message">
+                    Complete the assessment to receive recommendations
+                    based on your general risk level.
+                </p>
+
+
+                <div class="recommendation-container">
+
+                    <article class="recommendation-card">
+
+                        <h3>Password and Account Security</h3>
+
+                        <ul>
+                            <li>Use strong and unique passwords.</li>
+                            <li>Avoid sharing passwords with other people.</li>
+                            <li>Use a trusted password manager when appropriate.</li>
+                        </ul>
+
+                    </article>
+
+
+                    <article class="recommendation-card">
+
+                        <h3>Multi-Factor Authentication</h3>
+
+                        <ul>
+                            <li>Enable MFA when available.</li>
+                            <li>Review verification requests carefully.</li>
+                            <li>Never approve an unexpected login request.</li>
+                        </ul>
+
+                    </article>
+
+
+                    <article class="recommendation-card">
+
+                        <h3>Phishing Awareness</h3>
+
+                        <ul>
+                            <li>Check the sender before responding.</li>
+                            <li>Be cautious of urgent or unusual requests.</li>
+                            <li>Verify suspicious links before opening them.</li>
+                        </ul>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUPPORTING INFORMATION -->
+
+        <aside class="security-reminder">
+
+            <h2>Quick Security Reminder</h2>
+
+            <p>
+                This application is for cybersecurity awareness and
+                self-assessment only.
+            </p>
+
+            <p>
+                Never enter or share real passwords, authentication codes,
+                or other sensitive account information.
+            </p>
+
+        </aside>
+
+
+        <!-- FEEDBACK -->
+
+        <section id="feedback" class="content-section">
+
+            <div class="section-content">
+
+                <h2>Feedback</h2>
+
+                <p>
+                    Share comments or suggestions about the application.
+                </p>
+
+                <form class="feedback-form" id="feedback-form">
+
+                    <label for="feedback-name">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="feedback-name"
+                        name="feedback-name"
+                        placeholder="Enter your name">
+
+
+                    <label for="feedback-message">
+                        Feedback or Suggestions
+                    </label>
+
+                    <textarea
+                        id="feedback-message"
+                        name="feedback-message"
+                        rows="5"
+                        placeholder="Enter your feedback"></textarea>
+
+
+                    <button type="button" class="primary-button" id="send-feedback">
+                        Send Feedback
+                    </button>
+
+                    <p class="feedback-status" id="feedback-status" aria-live="polite"></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <p>
+            Cybersecurity Awareness & Risk Checker for College Students
+        </p>
+
+        <p>
+            Created for Web Systems and Technology
+        </p>
+
+        <p>
+            &copy; <%= currentYear %>
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
