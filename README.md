@@ -1,36 +1,69 @@
 # Cybersecurity Awareness & Risk Checker for College Students
 
-A browser-based application designed to help college students assess their cybersecurity awareness and everyday online security practices.
+## Project Description
 
-## About the Application
+The Cybersecurity Awareness & Risk Checker is a browser-based application designed to help college students assess their cybersecurity awareness and everyday online security practices. It provides a self-assessment questionnaire, displays a risk level based on the user's answers, and offers security recommendations.
 
-The application focuses on three cybersecurity areas:
-
-- Password and account security
-- Multi-factor authentication
-- Phishing awareness
-
-Users complete a short cybersecurity awareness assessment and receive a general Low, Moderate, or High Risk result based on their responses. The application also provides security recommendations based on the assessment result.
+The application also includes a feedback feature that allows users to submit comments or suggestions.
 
 ## Features
 
-- Cybersecurity awareness assessment
-- Six assessment questions covering three cybersecurity topics
-- Input validation for incomplete responses
-- General risk score and risk level
-- Security recommendations
-- Feedback form with input validation
-- Responsive webpage layout
+- **Cybersecurity Assessment** – Answers questions about everyday cybersecurity practices.
+- **Risk Level Calculation** – Calculates a score and displays a corresponding risk level.
+- **Security Recommendations** – Provides recommendations based on the assessment results.
+- **Feedback Submission** – Accepts user feedback through a form.
+- **Server-Side Rendering** – Uses Express.js and EJS to render the homepage.
+- **Feedback Storage** – Validates feedback on the server and stores submissions in a local JSON file.
 
 ## Technologies Used
 
-- HTML
-- CSS
+- HTML5
+- CSS3
 - JavaScript
+- Node.js
+- Express.js
+- EJS
+- JSON file storage
+
+## Installation and Setup
+
+### Prerequisites
+
+Install Node.js and npm before running the application.
+
+### Steps
+
+1. Clone or download this repository.
+2. Open a terminal in the project folder.
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the application:
+
+   ```bash
+   node app.js
+   ```
+
+5. Open the following address in your browser:
+
+   `http://localhost:3000`
+
+## Feedback Storage
+
+Feedback submissions are validated by the Express backend and stored in `feedback.json`. Each entry includes the submitted name, message, and submission timestamp.
+
+The JSON file is created when feedback is saved, if it does not already exist. The file is intended for local development and should not be committed to the public repository because it may contain user-submitted information.
 
 ## Project Scope
 
-This application is intended for cybersecurity awareness and self-assessment only. It does not scan devices, check real passwords, access user accounts, or perform vulnerability testing.
+This application is an educational cybersecurity awareness tool. It provides a self-assessment based on user responses; it does not perform actual device scans, network scans, or automated vulnerability detection.
+
+## Academic Context
+
+Developed for Web Systems and Technology (MO-IT161).
 
 ## Application Development Workflow Worksheet Link
 https://docs.google.com/spreadsheets/d/1ladCaQ0dIZUoNmZWEuc2NC8W80azfvy4pDw7HsiKGdw/edit?usp=sharing
