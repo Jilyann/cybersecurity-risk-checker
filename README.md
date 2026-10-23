@@ -61,10 +61,6 @@ The JSON file is created when feedback is saved, if it does not already exist. T
 
 This application is an educational cybersecurity awareness tool. It provides a self-assessment based on user responses; it does not perform actual device scans, network scans, or automated vulnerability detection.
 
-## Academic Context
-
-Developed for Web Systems and Technology (MO-IT161).
-
 ## Application Development Workflow Worksheet Link
 https://docs.google.com/spreadsheets/d/1ladCaQ0dIZUoNmZWEuc2NC8W80azfvy4pDw7HsiKGdw/edit?usp=sharing
 
