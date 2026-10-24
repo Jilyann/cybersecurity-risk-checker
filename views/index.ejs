@@ -422,6 +422,69 @@
 
                 </div>
 
+
+                <!-- COMMUNITY STATISTICS -->
+
+                <div class="stats-panel">
+
+                    <h3>Community Statistics</h3>
+
+                    <p>
+                        See how all students who took the assessment did. Results
+                        are saved anonymously, without names or other personal
+                        information.
+                    </p>
+
+                    <p class="stats-status" id="stats-status" aria-live="polite">
+                        Loading statistics...
+                    </p>
+
+                    <div class="stats-container" id="stats-tiles" hidden>
+
+                        <div class="stat-tile">
+                            <span class="stat-label">Assessments completed</span>
+                            <span class="stat-value" id="stats-total"></span>
+                        </div>
+
+                        <div class="stat-tile">
+                            <span class="stat-label">Average score</span>
+                            <span class="stat-value" id="stats-average"></span>
+                            <span class="stat-detail">out of 12 (lower is safer)</span>
+                        </div>
+
+                        <div class="stat-tile">
+                            <span class="stat-label">Most common weak area</span>
+                            <span class="stat-value stat-value-text" id="stats-weakest"></span>
+                        </div>
+
+                        <div class="stat-tile">
+                            <span class="stat-label">
+                                <span class="status-dot low-risk" aria-hidden="true"></span>Low risk
+                            </span>
+                            <span class="stat-value" id="stats-low"></span>
+                            <span class="stat-detail" id="stats-low-count"></span>
+                        </div>
+
+                        <div class="stat-tile">
+                            <span class="stat-label">
+                                <span class="status-dot moderate-risk" aria-hidden="true"></span>Moderate risk
+                            </span>
+                            <span class="stat-value" id="stats-moderate"></span>
+                            <span class="stat-detail" id="stats-moderate-count"></span>
+                        </div>
+
+                        <div class="stat-tile">
+                            <span class="stat-label">
+                                <span class="status-dot high-risk" aria-hidden="true"></span>High risk
+                            </span>
+                            <span class="stat-value" id="stats-high"></span>
+                            <span class="stat-detail" id="stats-high-count"></span>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </section>

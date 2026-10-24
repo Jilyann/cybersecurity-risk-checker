@@ -200,6 +200,11 @@ h3 {
     background-color: #1d4ed8;
 }
 
+.primary-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
 
 /* RESULTS */
 
@@ -262,6 +267,79 @@ h3 {
 
 .result-placeholder.high-risk {
     color: #dc2626;
+}
+
+
+/* COMMUNITY STATISTICS */
+
+.stats-panel {
+    margin-top: 30px;
+}
+
+.stats-status {
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.stats-container[hidden] {
+    display: none;
+}
+
+.stat-tile {
+    background-color: white;
+    border: 1px solid #dbe3ee;
+    border-radius: 10px;
+    padding: 15px 20px;
+    flex: 1 1 300px;
+}
+
+.stat-label,
+.stat-detail {
+    display: block;
+    color: #475569;
+}
+
+.stat-detail {
+    font-size: 0.9rem;
+}
+
+.stat-value {
+    display: block;
+    margin: 5px 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #0f172a;
+}
+
+.stat-value-text {
+    font-size: 1.2rem;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-dot.low-risk {
+    background-color: #16a34a;
+}
+
+.status-dot.moderate-risk {
+    background-color: #f97316;
+}
+
+.status-dot.high-risk {
+    background-color: #dc2626;
 }
 
 

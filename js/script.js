@@ -8,6 +8,8 @@ let feedbackName = document.getElementById("feedback-name");
 let feedbackMessage = document.getElementById("feedback-message");
 let feedbackButton = document.getElementById("send-feedback");
 let feedbackStatus = document.getElementById("feedback-status");
+let statsStatus = document.getElementById("stats-status");
+let statsTiles = document.getElementById("stats-tiles");
 
 submitButton.onclick = function () {
 
@@ -34,17 +36,52 @@ submitButton.onclick = function () {
         }
     }
 
-    let riskScore = 0;
+    submitButton.disabled = true;
 
-    for (let i = 0; i < answers.length; i++) {
-        if (answers[i].value === "no") {
-            riskScore = riskScore + 2;
-        } else if (answers[i].value === "sometimes") {
-            riskScore = riskScore + 1;
-        }
-    }
+    // The server calculates the score, saves the result, and sends back the statistics
+    fetch("/assessment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            answers: {
+                "password-unique": q1.value,
+                "password-sharing": q2.value,
+                "mfa-use": q3.value,
+                "verification-review": q4.value,
+                "sender-check": q5.value,
+                "phishing-links": q6.value
+            }
+        })
+    })
+        .then(function (response) {
+            return response.json().then(function (data) {
+                if (!response.ok) {
+                    throw new Error(data.error || "The server could not check the assessment.");
+                }
 
-    if (riskScore <= 3) {
+                showResult(data.score, data.riskLevel);
+                showStats(data.stats);
+            });
+        })
+        .catch(function (error) {
+            resultText.textContent =
+                "The assessment was not submitted: " + error.message;
+
+            resultCard.className = "result-card";
+            resultLabel.className = "result-label";
+            resultText.className = "result-placeholder";
+        })
+        .finally(function () {
+            submitButton.disabled = false;
+            document.getElementById("results").scrollIntoView();
+        });
+
+};
+
+// Display the score and risk level calculated by the server
+function showResult(riskScore, riskLevel) {
+
+    if (riskLevel === "Low") {
         resultText.textContent =
             "Low Risk (score: " + riskScore + "/12): Your habits show strong cybersecurity awareness.";
 
@@ -55,7 +92,7 @@ submitButton.onclick = function () {
         resultLabel.className = "result-label low-risk";
         resultText.className = "result-placeholder low-risk";
 
-    } else if (riskScore <= 7) {
+    } else if (riskLevel === "Moderate") {
         resultText.textContent =
             "Moderate Risk (score: " + riskScore + "/12): Some habits could be improved.";
 
@@ -78,9 +115,7 @@ submitButton.onclick = function () {
         resultText.className = "result-placeholder high-risk";
     }
 
-    document.getElementById("results").scrollIntoView();
-
-};
+}
 
 feedbackButton.onclick = function () {
 
@@ -118,3 +153,52 @@ feedbackButton.onclick = function () {
         });
 
 };
+
+// Show the community statistics sent by the server
+function showStats(stats) {
+
+    if (stats.totalAssessments === 0) {
+        statsStatus.textContent =
+            "No assessments have been completed yet. Be the first to take it!";
+
+        statsStatus.hidden = false;
+        statsTiles.hidden = true;
+
+        return;
+    }
+
+    document.getElementById("stats-total").textContent = stats.totalAssessments;
+    document.getElementById("stats-average").textContent = stats.averageScore.toFixed(1);
+    document.getElementById("stats-weakest").textContent = stats.weakestTopic || "None so far";
+
+    let levels = ["Low", "Moderate", "High"];
+
+    for (let i = 0; i < levels.length; i++) {
+        let level = stats.riskLevels[levels[i]];
+        let id = "stats-" + levels[i].toLowerCase();
+
+        document.getElementById(id).textContent = level.percent + "%";
+        document.getElementById(id + "-count").textContent =
+            level.count + " of " + stats.totalAssessments;
+    }
+
+    statsStatus.hidden = true;
+    statsTiles.hidden = false;
+
+}
+
+// Load the community statistics when the page opens
+fetch("/assessment/stats")
+    .then(function (response) {
+        return response.json().then(function (data) {
+            if (!response.ok) {
+                throw new Error(data.error || "Statistics are not available.");
+            }
+
+            showStats(data);
+        });
+    })
+    .catch(function () {
+        statsStatus.textContent =
+            "Community statistics are not available right now.";
+    });
