@@ -142,6 +142,9 @@ https://docs.google.com/spreadsheets/d/1ladCaQ0dIZUoNmZWEuc2NC8W80azfvy4pDw7HsiK
 ## AI Use Statement Link
 https://docs.google.com/document/d/1brsTEIXXLcQ28UXZfO8CgNyF7gJl79_MaBH5d0Tzhho/edit?usp=sharing
 
+## Functional Testing Workbook Link
+https://docs.google.com/spreadsheets/d/1zD2h3z8y_wDv-gNK2McRqk1wqQjNfRQ9ZgLfzENmx58/edit?usp=sharing
+
 ## Course
 
 MO-IT161 – Web Systems and Technology
